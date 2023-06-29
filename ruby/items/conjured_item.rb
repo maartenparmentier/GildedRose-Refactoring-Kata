@@ -1,19 +1,21 @@
 require_relative 'normal_item'
+require '../acts_as_item'
 
-class ConjuredItem< NormalItem
+class ConjuredItem
+  include ActsAsItem
+
+  attr_reader :item
+
+  def initialize(item)
+    @item = item
+  end
+
   def spend_day_in_shop
     decrease_sell_in_day
 
-    decrease_quality
-    decrease_quality
-
-    if item.sell_in.negative?
-      decrease_quality
-      decrease_quality
-    end
+    2.times { decrease_quality }
+    2.times { decrease_quality } if expired?
 
     keep_quality_lower_limit_in_bounds
-
-    self
   end
 end
