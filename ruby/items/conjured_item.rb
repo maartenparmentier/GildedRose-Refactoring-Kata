@@ -1,5 +1,5 @@
 require_relative 'normal_item'
-require '../acts_as_item'
+require_relative '../acts_as_item'
 
 class ConjuredItem
   include ActsAsItem

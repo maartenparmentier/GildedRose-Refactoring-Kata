@@ -1,4 +1,4 @@
-require '../acts_as_item'
+require_relative '../acts_as_item'
 
 class NormalItem
   include ActsAsItem
